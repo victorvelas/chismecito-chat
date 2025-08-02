@@ -1,0 +1,47 @@
+{% extends "Layouts/base.njk" %}
+
+{% block title %}{{ appName }}{% endblock %}
+
+{% block content %}
+    <div class="chat-container">
+        <!-- Lista de contactos -->
+        <aside class="sidebar">
+            <h2>Contactos</h2>
+            <ul class="contact-list">
+                {# <li class="contact active">Juan Pérez</li>
+                <li class="contact">Ana López</li>
+                <li class="contact">Carlos Ruiz</li>
+                <li class="contact">Lucía Torres</li> #}
+            </ul>
+        </aside>
+
+        <!-- Área de conversación -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <h2>Juan Pérez</h2>
+            </header>
+            <div class="messages" id="messages-box">
+                <div class="message received">
+                <p>Hola, ¿cómo estás?</p>
+                </div>
+                <div class="message sent">
+                <p>¡Hola! Todo bien, ¿y tú?</p>
+                </div>
+                <div class="message received">
+                <p>Excelente, gracias por preguntar.</p>
+                </div>
+            </div>
+            <footer class="chat-input">
+                <form id="frm-chat">
+                    <input type="text" placeholder="Escribe un mensaje...">
+                    <button>Enviar</button>
+                </form>
+            </footer>
+        </main>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="javascript/socket-io.client.js"></script>
+    <script type="text/javascript" src="javascript/main.js"></script>
+{% endblock %}

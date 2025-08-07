@@ -9,7 +9,7 @@ const PM = (function () {
     let imagesToSend = [];
 
     const addMessageToChat = (msgs) => {
-        const docMSG = `<div class="message received">
+        const docMSG = `<div class="message sent">
             ${msgs.map(msg => {
                 if (msg.type === 'text') {
                     return `<p>${msg.content}</p>`
@@ -34,10 +34,6 @@ const PM = (function () {
             imagesToSend.splice(0, imagesToSend.length);
         }
     };
-    
-
-    
-
 
     input.addEventListener('paste', (event) => {
         const items = (event.clipboardData || event.originalEvent.clipboardData).items;

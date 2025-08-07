@@ -4,7 +4,6 @@
 
 {% block content %}
     <div class="chat-container">
-        <!-- Lista de contactos -->
         <aside class="sidebar">
             <h2>Contactos</h2>
             <ul class="contact-list">
@@ -14,36 +13,35 @@
                 <li class="contact">Lucía Torres</li> #}
             </ul>
         </aside>
-
-        <!-- Área de conversación -->
         <main class="chat-area">
             <header class="chat-header">
-                <h2>Juan Pérez</h2>
+                <h2>{{ appName }}</h2>
             </header>
             <div class="messages" id="messages-box">
                 <div class="message received">
-                <p>Hola, ¿cómo estás?</p>
+                    <p>Hola, ¿cómo estás?</p>
                 </div>
                 <div class="message sent">
-                <p>¡Hola! Todo bien, ¿y tú?</p>
+                    <p>¡Hola! Todo bien, ¿y tú?</p>
                 </div>
                 <div class="message received">
-                <p>Excelente, gracias por preguntar.</p>
+                    <p>Excelente, gracias por preguntar.</p>
                 </div>
             </div>
             <footer class="chat-input">
                 <form id="frm-chat">
                     <input type="text" placeholder="Escribe un mensaje...">
-                    <button>Enviar</button>
+                    {% if true %}
+                        <button>Enviar</button>
+                    {% endif %}
                     <div id="previewContainer" style="display:none;" class="padding-top-12">
-                        {# <img id="previewImage" style="max-width:200px; max-height:200px;" /> #}
                     </div>
                 </form>
             </footer>
         </main>
     </div>
     <template id="template-preview">
-        <img class="preview-img" onclick="PM.openImg(this)" style="max-width: 75px; max-height: 75px;"/>
+        <img class="preview-img" onclick="PM.openImg(this)" style="max-width: 75px; max-height: 75px;" />
     </template>
 {% endblock %}
 

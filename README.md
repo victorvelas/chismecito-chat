@@ -6,8 +6,8 @@ Una aplicación básica de chat en tiempo real, ideal soltar chismecito con tus 
 
 [x] Envío de mensajes en tiempo real
 [x] Interfaz intuitiva y responsiva
-[] Lista de usuarios conectados
-[] Notificaciones de conexión y desconexión
+[ ] Lista de usuarios conectados
+[ ] Notificaciones de conexión y desconexión
 [x] Backend simple y ligero
 
 ## 🛠️ Tecnologías utilizadas
@@ -41,5 +41,7 @@ http://localhost:3000
 
 ## 🧪 Uso
 Abre el navegador en dos pestañas o dispositivos diferentes.
+
 Escribe un mensaje en una y deberías verlo aparecer en tiempo real en ambas.
+
 Despliegalo y diviertete con tus amigos 😊

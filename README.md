@@ -4,11 +4,11 @@ Una aplicación básica de chat en tiempo real, ideal soltar chismecito con tus 
 
 ## 🚀 Características
 
-[x] Envío de mensajes en tiempo real
-[x] Interfaz intuitiva y responsiva
-[ ] Lista de usuarios conectados
-[ ] Notificaciones de conexión y desconexión
-[x] Backend simple y ligero
+- [x] Envío de mensajes en tiempo real
+- [x] Interfaz intuitiva y responsiva
+- [ ] Lista de usuarios conectados
+- [ ] Notificaciones de conexión y desconexión
+- [x] Backend simple y ligero
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -20,7 +20,7 @@ Una aplicación básica de chat en tiempo real, ideal soltar chismecito con tus 
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/victorvelas/chismecito-chat.git
+git clone https://github.com/victorvelas/chismecito-chat.git chismecito-chat
 cd chismecito-chat
 ```
 

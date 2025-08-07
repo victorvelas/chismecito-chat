@@ -2,11 +2,8 @@ import express from "express";
 import { Routes } from "../routes/web.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
-
 import { createServer } from "node:http";
 import { Server } from "socket.io";
-
-
 import nunjucks from "nunjucks";
 
 const port = process.env.PORT ?? 3000;
@@ -16,9 +13,15 @@ const io = new Server(server);
 
 io.on('connection', (socket) => {
     console.log("A user has coneected");
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg)
-        console.log(`Aaaayy me escribieron :v : ${msg}`);
+    socket.on('chat message', (msgs) => {
+        console.log(`Aaaayy me escribieron :v`, msgs);
+        const _msgs = msgs.map((msg) => {
+            if (msg.type === 'image') {
+                msg.content = `data:${msg.metadata.contentType};base64,${msg.content.toString('base64')}`;
+            }
+            return msg;
+        });
+        io.emit('chat message', _msgs)
     });
     socket.on('disconnect', () => {
         console.log("A user has disconnected")
@@ -41,11 +44,8 @@ app.use(express.static(route));
 /**
  * Create Dinamic routes
  */
-Routes.filter(route => route.method === 'get').forEach(route => {
-    app.get(route.uri, route.callback);
-});
-Routes.filter(route => route.method === 'post').forEach(route => {
-    app.post(route.uri, route.callback);
+Routes.forEach(route => {
+    app[route.method](route.uri, route.callback);
 });
 
 server.listen(port, () => {

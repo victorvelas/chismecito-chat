@@ -34,16 +34,16 @@
             <footer class="chat-input">
                 <form id="frm-chat">
                     <input type="text" placeholder="Escribe un mensaje...">
-                    <div id="previewContainer" style="display:none;">
+                    <button>Enviar</button>
+                    <div id="previewContainer" style="display:none;" class="padding-top-12">
                         {# <img id="previewImage" style="max-width:200px; max-height:200px;" /> #}
                     </div>
-                    <button>Enviar</button>
                 </form>
             </footer>
         </main>
     </div>
     <template id="template-preview">
-        <img class="preview-img" onclick="PM.openImg(this)" style="max-width: 200px; max-height: 200px;"/>
+        <img class="preview-img" onclick="PM.openImg(this)" style="max-width: 75px; max-height: 75px;"/>
     </template>
 {% endblock %}
 

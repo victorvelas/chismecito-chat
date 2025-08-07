@@ -16,7 +16,7 @@ const PM = (function () {
                 }
                 if (msg.type === 'image') {
                     return `<a href="${msg.content}" target="_blank">
-                        <img src="${msg.content}" />
+                        <img src="${msg.content}" class="img-on-message" />
                     </a>`
                 }
                 return '';

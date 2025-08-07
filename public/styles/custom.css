@@ -96,6 +96,9 @@ body {
     background-color: #f9f9f9;
 }
 
+.chat-input form {
+    width: 100%;
+}
 .chat-input input {
     flex: 1;
     padding: 0.75rem;
@@ -103,6 +106,10 @@ body {
     border-radius: 25px;
     outline: none;
     padding-left: 1rem;
+    min-width: 75%;
+}
+.padding-top-12 {
+    padding-top: 12px;
 }
 
 .chat-input button {
@@ -118,6 +125,10 @@ body {
 
 .chat-input button:hover {
     background-color: #1e2a3a;
+}
+
+.img-on-message {
+    max-width: 100% !important;
 }
 
 /* ----------- 📱 Responsive ----------- */

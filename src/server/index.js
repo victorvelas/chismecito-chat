@@ -14,7 +14,6 @@ const io = new Server(server);
 io.on('connection', (socket) => {
     console.log("A user has coneected");
     socket.on('chat message', (msgs) => {
-        console.log(`Aaaayy me escribieron :v`, msgs);
         const _msgs = msgs.map((msg) => {
             if (msg.type === 'image') {
                 msg.content = `data:${msg.metadata.contentType};base64,${msg.content.toString('base64')}`;
@@ -49,6 +48,6 @@ Routes.forEach(route => {
 });
 
 server.listen(port, () => {
-    console.log(`chismecito-chat app listening on port ${port}`)
+    console.log(`chismecito-chat app listening on http://localhost:${port}`)
 });
 

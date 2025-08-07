@@ -86,7 +86,6 @@ const PM = (function () {
 
     return {
         openImg: function (img) {
-            console.log(img.src);debugger;
             window.open(img.src, '_blank').focus();
         }
     };

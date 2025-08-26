@@ -2,7 +2,12 @@
 
 {% block title %}{{ appName }}{% endblock %}
 
+{% block css %}
+    <link rel="stylesheet" href="styles/modal.css">
+{% endblock %}
+
 {% block content %}
+    {% include "modal.njk" %}
     <div class="chat-container">
         <aside class="sidebar">
             <h2>Contactos</h2>
@@ -48,4 +53,5 @@
 {% block js %}
     <script type="text/javascript" src="javascript/socket-io.client.js"></script>
     <script type="text/javascript" src="javascript/main.js"></script>
+    <script type="text/javascript" src="javascript/modal.js"></script>
 {% endblock %}

@@ -2,7 +2,7 @@
 
 const PM = (function () {
 
-
+    let userName = '';
     const socket = io();
     const form = document.getElementById("frm-chat");
     const input = form.querySelector("input[type='text']");
@@ -81,6 +81,9 @@ const PM = (function () {
     });
 
     return {
+        setUser: function ($userName) {
+            userName = $userName;
+        },
         openImg: function (img) {
             window.open(img.src, '_blank').focus();
         }

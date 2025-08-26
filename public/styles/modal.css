@@ -1,0 +1,29 @@
+section.modal {
+    min-height: 100dvh;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    background: rgba(52, 52, 52, 0.467);
+    backdrop-filter: blur(5px);
+    transition: all ease 0.4s;
+}
+
+section.modal.closed {
+    display: none;
+}
+
+section.modal > .modal-content {
+    margin: auto;
+    background: #fff;
+    min-height: 40px;
+    border: solid 1px rgba(49, 49, 49, 0.331);
+    border-radius: 3px;
+    min-width: 420px;
+    padding: 15px;
+    box-shadow: 0px 6px 9px 0px rgb(0 0 0 / 21%);
+}
+
+section.modal > .modal-content > .modal-footer {
+    margin-top: 15px;
+}
+

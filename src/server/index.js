@@ -42,9 +42,9 @@ nunjucks.configure(path.resolve(__dirname, "../app/Views"), {
 });
 app.set("view engine", "njk");
 
-const directory = path.dirname(fileURLToPath(import.meta.url));
-const _route = directory.substring(0, directory.indexOf('src\\server'));
-const route = path.join(_route, 'public');
+// const directory = path.dirname(fileURLToPath(import.meta.url));
+// const _route = directory.substring(0, directory.indexOf('src\\server'));
+const route = path.resolve(__dirname, "../../public");
 app.use(express.static(route));
 
 

@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     });
 });
 
-nunjucks.configure('src/app/Views', {
+nunjucks.configure('../app/Views', {
     autoescape: true,
     express: app,
     watch: true,

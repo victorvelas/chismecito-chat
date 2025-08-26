@@ -33,8 +33,8 @@ io.on('connection', (socket) => {
         io.emit("new user", uname);
     });
 });
-
-nunjucks.configure('../app/Views', {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+nunjucks.configure(path.join(__dirname, "../../app/Views"), {
     autoescape: true,
     express: app,
     watch: true,

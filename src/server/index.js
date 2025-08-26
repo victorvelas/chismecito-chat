@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     });
 });
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-nunjucks.configure(path.join(__dirname, "../../app/Views"), {
+nunjucks.configure(path.resolve(__dirname, "../app/Views"), {
     autoescape: true,
     express: app,
     watch: true,

@@ -40,6 +40,7 @@ nunjucks.configure('src/app/Views', {
     watch: true,
     noCache: true
 });
+app.set("view engine", "njk");
 
 const directory = path.dirname(fileURLToPath(import.meta.url));
 const _route = directory.substring(0, directory.indexOf('src\\server'));

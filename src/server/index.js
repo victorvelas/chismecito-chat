@@ -13,17 +13,24 @@ const io = new Server(server);
 
 io.on('connection', (socket) => {
     console.log("A user has coneected");
-    socket.on('chat message', (msgs) => {
-        const _msgs = msgs.map((msg) => {
+    socket.on('chat message', (content) => {
+        const _msgs = content.messages.map((msg) => {
             if (msg.type === 'image') {
                 msg.content = `data:${msg.metadata.contentType};base64,${msg.content.toString('base64')}`;
             }
             return msg;
         });
-        io.emit('chat message', _msgs)
+        io.emit('chat message', {
+            user: content.user,
+            msg:_msgs
+        })
     });
     socket.on('disconnect', () => {
         console.log("A user has disconnected")
+    });
+
+    socket.on("new user", uname => {
+        io.emit("new user", uname);
     });
 });
 

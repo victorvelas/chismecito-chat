@@ -183,3 +183,8 @@ input.input {
 .error-detail {
     color: #ff0000;
 }
+
+.chat-content-user {
+    font-size: 11px;
+    color: lightslategrey
+}

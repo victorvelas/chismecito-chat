@@ -2,15 +2,22 @@
 
 const PM = (function () {
 
+    let permissions = null;
+    
+    Notification.requestPermission().then(p => { permissions = p; });
+
     let userName = '';
     const socket = io();
     const form = document.getElementById("frm-chat");
     const input = form.querySelector("input[type='text']");
     let imagesToSend = [];
 
-    const addMessageToChat = (msgs) => {
-        const docMSG = `<div class="message sent">
-            ${msgs.map(msg => {
+    const addMessageToChat = (context) => {
+        const docMSG = `<div class="message ${context.user === userName ? 'sent' : 'received'}">
+            <div>
+                <small class="chat-content-user">${context.user}</small>
+            </div>
+            ${context.msg.map(msg => {
                 if (msg.type === 'text') {
                     return `<p>${msg.content}</p>`
                 }
@@ -24,6 +31,8 @@ const PM = (function () {
             
         </div>`
         document.getElementById('messages-box').insertAdjacentHTML('beforeend', docMSG)
+        document.getElementById('messages-box').scrollTop = document.getElementById('messages-box').scrollHeight;
+
     };
 
     const resetForm = () => {
@@ -49,8 +58,16 @@ const PM = (function () {
         }
     });
 
-    socket.on('chat message', (msg) => {
-        addMessageToChat(msg);
+    socket.on('chat message', (context) => {
+        addMessageToChat(context);
+    });
+    socket.on('new user', (uname) => {
+        try {
+            if (permissions !== 'granted') { return; }
+            new Notification(`El usaurio "${uname}" se ha unido al chat`);
+        } catch (error) {
+            console.log(error);
+        }
     });
 
     form.addEventListener("submit", (ev) => {
@@ -76,13 +93,18 @@ const PM = (function () {
             });
         }
         if (messages.length === 0) { return; }
-        socket.emit("chat message", (messages));
+        socket.emit("chat message", ({
+            user: userName,
+            messages
+        }));
         resetForm();
     });
 
     return {
         setUser: function ($userName) {
             userName = $userName;
+            socket.emit("new user", $userName);
+            document.querySelector('.modal').classList.add('closed');
         },
         openImg: function (img) {
             window.open(img.src, '_blank').focus();

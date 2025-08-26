@@ -55,9 +55,9 @@ Routes.forEach(route => {
     app[route.method](route.uri, route.callback);
 });
 
-export default server; //
+// export default server; //
 
-/* server.listen(port, () => {
+server.listen(port, () => {
     console.log(`chismecito-chat app listening on http://localhost:${port}`)
-}); */
+});
 

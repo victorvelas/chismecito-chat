@@ -2,6 +2,8 @@
 
 Una aplicación básica de chat en tiempo real, ideal soltar chismecito con tus amigos.
 
+![Hechemos chismecito](https://c.tenor.com/MsEaHcoTc1cAAAAC/tenor.gif)
+
 ## 🚀 Características
 
 - [x] Envío de mensajes en tiempo real
